@@ -11,7 +11,7 @@ pipeline {
         stage('Test') {
             steps {
                 // Execute the compiled hello.cpp file
-                sh './main/hello'
+                sh './main/hello' gdsrgsdr
                 echo 'Test Stage Successful'
             }
         }
