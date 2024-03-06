@@ -3,24 +3,21 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean install'
+                // Compile the hello.cpp file
+                sh 'g++ -o hello hello.cpp'
                 echo 'Build Stage Successful'
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                // Execute the compiled hello.cpp file
+                sh './hello'
                 echo 'Test Stage Successful'
-            }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
             }
         }
         stage('Deploy') {
             steps {
-                sh 'mvn deploy'
+                // Add deployment steps if needed
                 echo 'Deployment Successful'
             }
         }
