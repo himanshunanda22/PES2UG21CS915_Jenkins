@@ -3,15 +3,15 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                // Compile the hello.cpp file
-                sh 'g++ -o hello hello.cpp'
+                // Compile the hello.cpp file located inside the main directory
+                sh 'g++ -o main/hello main/hello.cpp'
                 echo 'Build Stage Successful'
             }
         }
         stage('Test') {
             steps {
                 // Execute the compiled hello.cpp file
-                sh './hello'
+                sh './main/hello'
                 echo 'Test Stage Successful'
             }
         }
